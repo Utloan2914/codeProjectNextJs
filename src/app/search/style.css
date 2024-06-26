@@ -1,0 +1,36 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 40px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline:none;
+}
+.search-input:hover{
+    outline: 2px solid blue;
+}
+
+.search-button {
+    background-color: #4285f4;
+    border: none;
+    padding: 16px 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button .fas {
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #5617ae;
+}
