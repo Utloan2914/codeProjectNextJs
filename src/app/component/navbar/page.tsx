@@ -57,7 +57,7 @@ const Navbar = () => {
         </Link>
       </StyledNavLinks>
       <ModeToggle />
-      <div style={{ marginLeft: 'auto' }}>
+      <div>
         <Logout />
       </div>
     </StyledNavbar>
