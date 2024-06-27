@@ -1,4 +1,5 @@
-'use client'
+// layout.tsx
+'use client';
 import React, { Suspense, ReactNode } from 'react';
 import Navbar from '../navbar/page';
 import Footer from '../footer/page';
@@ -13,27 +14,29 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const pathname = usePathname();
 
-  if (pathname === '/register' || pathname === '/login' || pathname === '/' || pathname === '/productAPI'|| pathname ==='/logout' ) {
-    return (
-      <div>
-      
-          <Navbar />
-        <Suspense fallback={<div className="flex justify-center items-center h-screen">
-        </div>}>
-          <main>
-            {pathname === '/productAPI' ? (
-              <Product /> 
+  const showContent = pathname === '/register' || pathname === '/login' || pathname === '/' || pathname === '/productAPI' || pathname === '/logout';
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="flex-grow">
+        <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+          <main className="flex flex-col items-center justify-center">
+            {showContent ? (
+              pathname === '/productAPI' ? (
+                <Product /> 
+              ) : (
+                children 
+              )
             ) : (
-              children 
+              <ErrorPage />
             )}
           </main>
         </Suspense>
-        <Footer />
       </div>
-    );
-  } else {
-    return <ErrorPage />;
-  }
+      <Footer />
+    </div>
+  );
 };
 
 export default Layout;
